@@ -120,7 +120,7 @@ List<Subtitle> parseSrt(String srt) {
   final List<List<String>> splitChunk = splitByEmptyLine(split);
 
   for (List<String> chunk in splitChunk) {
-    print(chunk);
+    // print(chunk);
     final range = parseBeginEnd(chunk[1]);
     if (range == null) continue;
     int id = int.parse(chunk[0]);
