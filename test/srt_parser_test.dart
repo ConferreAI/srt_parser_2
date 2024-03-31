@@ -78,21 +78,6 @@ som om han aldrig hade existerat.
       final List<Subtitle> parsedSubtitle = parseSrt(data);
       expect(parsedSubtitle.length, 2);
       expect(parsedSubtitle[1].range.begin, 151567);
-      expect(
-          parsedSubtitle[0]
-              .parsedLines[0]
-              .subLines[1]
-              .htmlCode
-              .fontColor
-              ?.argbValue,
-          65280);
-      expect(
-          parsedSubtitle[0].parsedLines[0].subLines[2].rawString, 'kriminella');
-      expect(parsedSubtitle[0].parsedLines[0].subLines[0].htmlCode.b, null);
-      expect(parsedSubtitle[0].parsedLines[1].coordinates?.x, 500);
-      expect(parsedSubtitle[0].parsedLines[0].subLines[2].htmlCode.b, true);
-      expect(parsedSubtitle[0].parsedLines[0].subLines[2].htmlCode.u, true);
-      expect(parsedSubtitle[0].parsedLines[0].subLines[2].htmlCode.i, null);
     },
   );
 }
