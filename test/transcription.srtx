@@ -1,22 +1,18 @@
 1
 00:00:00,000 --> 00:00:03,640
 text: You have higher throughput on this processor
-translation: 在这个处理器上你有更高的吞吐量
 
 2
 00:00:03,640 --> 00:00:07,320
 text: because this code out here will run without any interruption.
-translation: 因为这里的代码将会无任何中断地运行。
 
 3
 00:00:07,320 --> 00:00:11,280
 text: This code that will execute out here
-translation: 这里将要执行的代码
 
 4
 00:00:11,280 --> 00:00:16,080
 text: will be more deterministic because once I give it execution
-translation: 将会更加确定性，因为一旦我开始执行
 
 5
 00:00:16,080 --> 00:00:18,720

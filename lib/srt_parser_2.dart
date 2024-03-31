@@ -15,14 +15,17 @@ class Subtitle {
   Subtitle({
     required this.id,
     required this.range,
-    required this.rawLine,
-    this.translation
+    required this.content,
+    this.lineBrake = false,
+    this.translation,
+
   });
 
   final int id;
   final Range range;
-  final String rawLine;
+  final String content;
   final String? translation;
+  final bool lineBrake;
 }
 
 
@@ -117,13 +120,31 @@ List<Subtitle> parseSrt(String srt) {
   final List<List<String>> splitChunk = splitByEmptyLine(split);
 
   for (List<String> chunk in splitChunk) {
+    print(chunk);
     final range = parseBeginEnd(chunk[1]);
     if (range == null) continue;
+    int id = int.parse(chunk[0]);
+    var text;
+    var translation;
+    var lineBrake = false;
+    for (var i = 2; i < chunk.length; i ++){
+      var chunkLet = chunk[i];
+      if(chunkLet.startsWith('text: ')){
+        text = chunkLet.split(': ')[1];
+      }
+      if(chunkLet.startsWith('translation: ')){
+        translation = chunkLet.split(': ')[1];
+      }
+      if(chunkLet == '<br>'){
+        lineBrake = true;
+      }
+    }
     final Subtitle subtitle = Subtitle(
-      id: int.parse(chunk[0]),
+      id: id,
       range: range,
-      rawLine: chunk[2].split(': ')[1],
-      translation: chunk[3].split(': ')[1]
+      content: text,
+      translation: translation,
+      lineBrake: lineBrake
     );
     result.add(subtitle);
   }

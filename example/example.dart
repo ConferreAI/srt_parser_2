@@ -10,7 +10,7 @@ Future<void> main() async {
     print(
         'subtitle\'s Begin is: ${item.range.begin} and End is: ${item.range.end}');
     print(
-        'subtitle\'s Text is: ${item.rawLine}');
+        'subtitle\'s Text is: ${item.content}');
     print(
         'subtitle\'s Translation is: ${item.translation}');
     print('----');
