@@ -1,8 +1,9 @@
-name: srt_parser_2
+name: srtx_parser
 version: 2.0.1
-description: A cross-platform, .srt parser that allows you to read a String containing Html and Coordinates and results to subtitle objects.
-homepage: https://github.com/dra11y/srt_parser_2
-repository: https://github.com/dra11y/srt_parser_2
+description: A cross-platform, .srtx parser that allows you to read a String containing Html and Coordinates and results to subtitle objects.
+homepage: https://github.com/ConferreAI/srtx_parser.git
+repository: https://github.com/ConferreAI/srtx_parser.git
+publish_to: "none"
 
 environment:
   sdk: ">=2.19.2 <3.0.0"

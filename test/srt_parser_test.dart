@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:test/test.dart';
-import '../lib/srt_parser_2.dart';
+import '../lib/srtx_parser.dart';
 
 void main() {
   const String data = '''1
@@ -75,7 +75,7 @@ som om han aldrig hade existerat.
   test(
     'parseSrt',
     () {
-      final List<Subtitle> parsedSubtitle = parseSrt(data);
+      final List<Subtitle> parsedSubtitle = parseSrtx(data);
       expect(parsedSubtitle.length, 2);
       expect(parsedSubtitle[1].range.begin, 151567);
     },

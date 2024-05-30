@@ -1,10 +1,10 @@
-import 'package:srt_parser_2/srt_parser_2.dart';
 import 'dart:io';
 
+import 'package:srtx_parser/srtx_parser.dart';
 
 Future<void> main() async {
   String srt = await File('test/transcription.srtx').readAsString();
-  List<Subtitle> subtitles = parseSrt(srt);
+  List<Subtitle> subtitles = parseSrtx(srt);
   for (Subtitle item in subtitles) {
     print('subtitle\'s ID is: ${item.id}');
     print(

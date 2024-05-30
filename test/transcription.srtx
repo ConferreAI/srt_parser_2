@@ -1,295 +1,295 @@
 1
 00:00:00,000 --> 00:00:03,640
-text: You have higher throughput on this processor
+You have higher throughput on this processor
 
 2
 00:00:03,640 --> 00:00:07,320
-text: because this code out here will run without any interruption.
+because this code out here will run without any interruption.
 
 3
 00:00:07,320 --> 00:00:11,280
-text: This code that will execute out here
+This code that will execute out here
 
 4
 00:00:11,280 --> 00:00:16,080
-text: will be more deterministic because once I give it execution
+will be more deterministic because once I give it execution
 
 5
 00:00:16,080 --> 00:00:18,720
-text: over the processor, I will not get any interrupts
+over the processor, I will not get any interrupts
 translation: 在处理器上，我不会得到任何中断
 
 6
 00:00:18,720 --> 00:00:19,320
-text: or whatsoever.
+or whatsoever.
 translation: 或者任何事情。
 
 7
 00:00:19,320 --> 00:00:21,480
-text: So if I'm allocating five milliseconds,
+So if I'm allocating five milliseconds,
 translation: 所以如果我分配五毫秒，
 
 8
 00:00:21,480 --> 00:00:25,240
-text: it's actually five milliseconds without any interrupts or whatsoever.
+it's actually five milliseconds without any interrupts or whatsoever.
 translation: 实际上是五毫秒，没有任何中断或其他。
 
 9
 00:00:25,240 --> 00:00:28,680
-text: Everything is being handled on this co-processor out here.
+Everything is being handled on this co-processor out here.
 translation: 一切都在这里的协处理器上处理。
 
 10
 00:00:28,680 --> 00:00:33,520
-text: Similarly, another co-processor to do the scheduling.
+Similarly, another co-processor to do the scheduling.
 translation: 同样，另一个协处理器来进行调度。
 
 11
 00:00:33,520 --> 00:00:38,280
-text: So while the code is executing on this processor,
+So while the code is executing on this processor,
 translation: 所以当代码在这个处理器上执行时，
 
 12
 00:00:38,280 --> 00:00:40,640
-text: you have the scheduler running out here
+you have the scheduler running out here
 translation: 你有一个调度程序在这里运行
 
 13
 00:00:40,640 --> 00:00:45,360
-text: to try to find the next code, the next process
+to try to find the next code, the next process
 translation: 尝试找到下一个代码，下一个进程
 
 14
 00:00:45,360 --> 00:00:47,160
-text: that needs to be executed.
+that needs to be executed.
 translation: 需要被执行的。
 
 15
 00:00:47,160 --> 00:00:56,160
-text: So without this hardware support, what happens without this hardware support,
+So without this hardware support, what happens without this hardware support,
 translation: 所以没有这个硬件支持，没有这个硬件支持会发生什么，
 
 16
 00:00:57,120 --> 00:01:00,800
-text: everything was running on this CPU.
+everything was running on this CPU.
 translation: 一切都在这个CPU上运行。
 
 17
 00:01:00,800 --> 00:01:04,120
-text: So you have some time where your process is running
+So you have some time where your process is running
 translation: 所以你有一些时间是你的进程在运行
 
 18
 00:01:04,120 --> 00:01:08,120
-text: then some time where the OS and the scheduler is running.
+then some time where the OS and the scheduler is running.
 translation: 然后有一些时间是操作系统和调度程序在运行。
 
 19
 00:01:08,120 --> 00:01:10,360
-text: And then again, you do the context switching
+And then again, you do the context switching
 translation: 然后再次，你进行上下文切换
 
 20
 00:01:10,360 --> 00:01:13,000
-text: go to the other process and so on.
+go to the other process and so on.
 translation: 转到另一个进程等等。
 
 21
 00:01:13,000 --> 00:01:16,080
-text: With this co-processor, they are running in parallel.
+With this co-processor, they are running in parallel.
 translation: 有了这个协处理器，它们可以并行运行。
 
 22
 00:01:16,080 --> 00:01:20,000
-text: So your operating system is running when it's co-processor.
+So your operating system is running when it's co-processor.
 translation: 所以你的操作系统在协处理器运行时运行。
 
 23
 00:01:20,000 --> 00:01:22,760
-text: So it's scheduling a certain process.
+So it's scheduling a certain process.
 translation: 所以它正在调度某个进程。
 
 24
 00:01:22,760 --> 00:01:27,120
-text: Before it finishes, this is the OS out here.
+Before it finishes, this is the OS out here.
 translation: 在它结束之前，这是操作系统。
 
 25
 00:01:27,120 --> 00:01:31,880
-text: Before the process finishes, it's doing all its calculations
+Before the process finishes, it's doing all its calculations
 translation: 在进程结束之前，它正在进行所有计算
 
 26
 00:01:31,880 --> 00:01:37,680
-text: to know what is the next process that needs to be scheduled.
+to know what is the next process that needs to be scheduled.
 translation: 来知道下一个需要被调度的进程是什么。
 
 27
 00:01:37,680 --> 00:01:40,200
-text: Once process number one finishes out here,
+Once process number one finishes out here,
 translation: 一旦第一个进程在这里结束，
 
 28
 00:01:40,200 --> 00:01:42,760
-text: it goes directly to process number two.
+it goes directly to process number two.
 translation: 它直接转到第二个进程。
 
 29
 00:01:42,760 --> 00:01:45,000
-text: So it minimizes the overhead.
+So it minimizes the overhead.
 translation: 所以这减少了开销。
 
 30
 00:01:45,000 --> 00:01:48,120
-text: It minimizes the non-determinism in the system,
+It minimizes the non-determinism in the system,
 translation: 这减少了系统中的不确定性，
 
 31
 00:01:48,120 --> 00:01:53,240
-text: helps with making the entire system predictable,
+helps with making the entire system predictable,
 translation: 帮助使整个系统可预测，
 
 32
 00:01:53,240 --> 00:01:56,760
-text: which makes it easy to do the worst-based execution time analysis
+which makes it easy to do the worst-based execution time analysis
 translation: 这使得进行最坏情况执行时间分析变得简单
 
 33
 00:01:56,760 --> 00:01:57,520
-text: I want to see it.
+I want to see it.
 translation: 我想要看到它。
 
 34
 00:02:05,000 --> 00:02:07,800
-text: So about this co-processor out here,
+So about this co-processor out here,
 translation: 所以关于这里的这个协处理器，
 
 35
 00:02:07,800 --> 00:02:15,480
-text: here that's the architecture for this co-processor out here.
+here that's the architecture for this co-processor out here.
 translation: 这是这里协处理器的架构。
 
 36
 00:02:15,480 --> 00:02:22,360
-text: You see here, you have a certain core just doing the scheduling for you.
+You see here, you have a certain core just doing the scheduling for you.
 translation: 你看这里，你有一个特定的核心为你进行调度。
 
 37
 00:02:22,360 --> 00:02:26,120
-text: You have another core that is doing the CMA4 handling,
+You have another core that is doing the CMA4 handling,
 translation: 你有另一个核心正在处理CMA4，
 
 38
 00:02:26,120 --> 00:02:28,920
-text: remember the CMA4s and the locks and the making sure
+remember the CMA4s and the locks and the making sure
 translation: 记住CMA4和锁以及确保
 
 39
 00:02:28,920 --> 00:02:34,960
-text: that you do the priority inversion,
+that you do the priority inversion,
 translation: 你做了优先级反转，
 
 40
 00:02:34,960 --> 00:02:37,440
-text: you do the priority inheritance.
+you do the priority inheritance.
 translation: 你做了优先级继承。
 
 41
 00:02:37,440 --> 00:02:40,440
-text: Everything is running on all these locks
+Everything is running on all these locks
 translation: 一切都在这些锁上运行
 
 42
 00:02:40,440 --> 00:02:45,400
-text: and all these CMA4s are being handled by parallel
+and all these CMA4s are being handled by parallel
 translation: 并且所有这些CMA4都被并行处理
 
 43
 00:02:45,400 --> 00:02:52,440
-text: processor out here to make sure that nothing goes wrong and so on.
+processor out here to make sure that nothing goes wrong and so on.
 translation: 处理器在这里以确保一切顺利等等。
 
 44
 00:02:52,440 --> 00:02:56,160
-text: Why do you have this real-time clock?
+Why do you have this real-time clock?
 translation: 你为什么要有这个实时钟？
 
 45
 00:02:56,160 --> 00:02:58,400
-text: Is the one that you can schedule,
+Is the one that you can schedule,
 translation: 这是你可以安排的那个，
 
 46
 00:02:58,400 --> 00:03:00,880
-text: give you input every five milliseconds,
+give you input every five milliseconds,
 translation: 每五毫秒给你输入，
 
 47
 00:03:00,880 --> 00:03:02,720
-text: 50 milliseconds or whatever.
+50 milliseconds or whatever.
 translation: 50毫秒或者任何时间。
 
 48
 00:03:02,720 --> 00:03:06,120
-text: And this task handling out here is going to be your schedule.
+And this task handling out here is going to be your schedule.
 translation: 而这里的任务处理将是你的调度表。
 
 49
 00:03:06,120 --> 00:03:24,840
-text: So again, these are all the capabilities of this co-processor.
+So again, these are all the capabilities of this co-processor.
 translation: 因此，这些都是这个协处理器的所有功能。
 
 50
 00:03:24,840 --> 00:03:31,320
-text: This co-processor can handle different cues for the processes,
+This co-processor can handle different cues for the processes,
 translation: 这个协处理器可以处理进程的不同提示，
 
 51
 00:03:31,320 --> 00:03:33,320
-text: remember for each of the processes we said,
+remember for each of the processes we said,
 translation: 记住我们说的每一个进程，
 
 52
 00:03:33,320 --> 00:03:41,160
-text: we need to have different cues whether the process is ready,
+we need to have different cues whether the process is ready,
 translation: 我们需要有不同的提示，无论进程是否准备好，
 
 53
 00:03:41,160 --> 00:03:45,160
-text: whether it is running, whether it is free and so on.
+whether it is running, whether it is free and so on.
 translation: 它是在运行中，还是空闲，等等。
 
 54
 00:03:45,160 --> 00:03:49,640
-text: This entire information is handled by the hardware itself.
+This entire information is handled by the hardware itself.
 translation: 这整个信息由硬件本身处理。
 
 55
 00:03:49,640 --> 00:03:58,760
-text: So it has hardware support to move the processes from one cue to another.
+So it has hardware support to move the processes from one cue to another.
 translation: 因此，它具有硬件支持，可以将进程从一个提示移动到另一个提示。
 
 56
 00:03:58,760 --> 00:04:01,400
-text: It keeps track of this information on the hardware,
+It keeps track of this information on the hardware,
 translation: 它在硬件上跟踪这些信息，
 
 57
 00:04:01,400 --> 00:04:04,120
-text: so it makes everything much, much faster,
+so it makes everything much, much faster,
 translation: 所以这让一切都快了很多，
 
 58
 00:04:04,120 --> 00:04:07,200
-text: makes the real-time scheduling a much easier,
+makes the real-time scheduling a much easier,
 translation: 使实时调度变得更加容易，
 
 59
 00:04:07,200 --> 00:04:08,400
-text: a much easier case.
+a much easier case.
 translation: 一个更容易的情况。
 
 60
 00:04:11,520 --> 00:04:13,200
-text: All right, any questions?
+All right, any questions?
 translation: 好的，有什么问题吗？

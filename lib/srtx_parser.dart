@@ -18,7 +18,6 @@ class Subtitle {
     required this.content,
     this.lineBrake = false,
     this.translation,
-
   });
 
   final int id;
@@ -27,7 +26,6 @@ class Subtitle {
   final String? translation;
   final bool lineBrake;
 }
-
 
 @visibleForTesting
 Range? parseBeginEnd(String line) {
@@ -109,43 +107,43 @@ List<List<String>> splitByEmptyLine(List<String> lines) {
     result.add(chunk);
   }
 
-
   return result;
 }
 
-List<Subtitle> parseSrt(String srt) {
+List<Subtitle> parseSrtx(String srt) {
   final List<Subtitle> result = [];
 
   final List<String> split = splitIntoLines(srt);
   final List<List<String>> splitChunk = splitByEmptyLine(split);
 
   for (List<String> chunk in splitChunk) {
+    if (chunk.length < 3) {
+      continue;
+    }
+
     // print(chunk);
-    final range = parseBeginEnd(chunk[1]);
+    final Range? range = parseBeginEnd(chunk[1]);
     if (range == null) continue;
-    int id = int.parse(chunk[0]);
-    var text;
+    final int id = int.parse(chunk[0]);
+    final String text = chunk[2];
+
     var translation;
     var lineBrake = false;
-    for (var i = 2; i < chunk.length; i ++){
+    for (var i = 2; i < chunk.length; i++) {
       var chunkLet = chunk[i];
-      if(chunkLet.startsWith('text: ')){
-        text = chunkLet.split(': ')[1];
-      }
-      if(chunkLet.startsWith('translation: ')){
+      if (chunkLet.startsWith('translation: ')) {
         translation = chunkLet.split(': ')[1];
       }
-      if(chunkLet == '<br>'){
+      if (chunkLet == '<br>') {
         lineBrake = true;
       }
     }
     final Subtitle subtitle = Subtitle(
-      id: id,
-      range: range,
-      content: text,
-      translation: translation,
-      lineBrake: lineBrake
-    );
+        id: id,
+        range: range,
+        content: text,
+        translation: translation,
+        lineBrake: lineBrake);
     result.add(subtitle);
   }
 
